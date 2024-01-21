@@ -1,0 +1,133 @@
+/* Aplicar estilos al elemento img */
+.marjen {
+  margin: 20px;
+  width: 397px ;
+}
+
+img {
+
+  width: 395px;
+  height: 269px;
+  top: 209px;
+  left: 94px;
+  border-radius: 24px;
+}
+
+.superhost-label {
+  width: 100px;
+  height: 28px;
+  top: 493px;
+  left: 94px;
+  border-radius: 12px;
+  border: 1px solid;
+}
+
+/* Estilos para el elemento h2 */
+h2 {
+  width: 308px;
+  height: 20px;
+  top: 533px;
+  left: 94px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: right;
+  
+}
+
+/* Estilos para los elementos p */
+p {
+  width: 181px;
+  height: 17px;
+  top: 499px;
+  left: 205px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+/* Estilos para los elementos con la clase "card" utilizando Flexbox con envoltura (flex-wrap) */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite la envoltura de elementos en nuevas filas */
+  gap: 10px; /* Espacio entre las tarjetas (ajusta según sea necesario) */
+}
+
+.card {
+  /* Estilos individuales para cada tarjeta si es necesario */
+  flex: 1; /* Distribuye el espacio disponible de manera uniforme entre las tarjetas */
+  min-width: calc(33.33% - 10px); /* Ancho mínimo para cada tarjeta, considerando el espacio entre ellas */
+  /* Otros estilos de diseño específicos para tus tarjetas */
+}
+
+
+
+.type-beds {
+  display: flex;
+  justify-content: space-between;
+  /* Esto hará que los elementos type y beds se muestren uno al lado del otro con espacio entre ellos */
+}
+
+/* Puedes agregar más estilos según tus necesidades */
+.card div > p {
+  display: inline;
+   }
+
+/* Estilos para el botón "SUPER HOST" */
+.superhost-button {
+  width: 120px;
+  margin-right: 10px;
+  height: 28px;
+  border-radius: 12px;
+  border: 1px solid /* Agrega un color de borde, por ejemplo, negro */
+}
+
+.superhost-type-beds {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-right: 19px; /* Agrega espacio entre los elementos si es necesario */
+}
+
+
+
+.stay-type,
+.beds {
+  display: inline-block;
+  align-items:center;
+  justify-content: space-between;
+}
+
+.search-container {
+  display: flex;
+}
+
+.search-container {
+  justify-content: space-between;
+}
+
+.encabe-container{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.encabe-container {
+  justify-content: space-between;
+  align-items:center;
+}
+
+.navegador {
+  margin: 20px;
+}
+.rating {
+  display: flex;
+}
+
+.red-icon {
+  color: red;
+}
