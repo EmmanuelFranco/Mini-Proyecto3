@@ -16,7 +16,7 @@ function Card({ stay }) {
           <div className="left-details mb-2">
             <div className="superhost-type-beds flex items-center">
               {superHost && (
-                <button className="superhost-button">SUPER HOST</button>
+                <button className="superhost-button font-bold">SUPER HOST</button>
               )}
               {beds ? (
                 <p className="stay-type">{type} . {beds} beds</p>
@@ -29,7 +29,7 @@ function Card({ stay }) {
               </div>
             </div>
           </div>
-          <h2 className="title">{title}</h2>
+          <h2 className="title font-semibold">{title}</h2>
         </div>
       </div>
     </div>

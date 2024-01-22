@@ -3,8 +3,6 @@ import { GoStarFill } from "react-icons/go";
 import "./App.css";
 import Card from "./Componentes/Card";
 import Nav from "./Componentes/Nav";
-import staysData from "./stays.json";
-
 
 function App() {
   const [stays, setStays] = useState([]);
@@ -13,12 +11,26 @@ function App() {
   const [searchGuests, setSearchGuests] = useState("");
 
   useEffect(() => {
-    setStays(staysData);
-    setFilteredStays(staysData);
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/src/stays.json"); // Actualiza la ruta según tu estructura de carpetas
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setStays(data);
+        setFilteredStays(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
-    const filtered = staysData.filter((stay) => {
+    const filtered = stays.filter((stay) => {
       const locationMatch =
         searchLocation === "" ||
         `${stay.city}, ${stay.country}`
@@ -31,7 +43,7 @@ function App() {
     });
 
     setFilteredStays(filtered);
-  }, [searchLocation, searchGuests]);
+  }, [searchLocation, searchGuests, stays]);
 
   return (
     <div className="App">
