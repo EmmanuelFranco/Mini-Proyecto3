@@ -1,6 +1,6 @@
 import { GoX, GoSearch } from "react-icons/go";
 import React, { useState, useEffect } from "react";
-import staysData from "../stays.json";
+import staysData from "../../public/stays.json";
 import Card from "./Card";
 
 function Nav({ onSearch }) {

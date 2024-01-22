@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/src/stays.json"); // Actualiza la ruta según tu estructura de carpetas
+        const response = await fetch("stays.json"); 
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
