@@ -33,7 +33,7 @@ h2 {
   font-weight: 600;
   line-height: 20px;
   letter-spacing: 0em;
-  text-align: right;
+  
   
 }
 
@@ -50,7 +50,18 @@ p {
   letter-spacing: 0em;
   text-align: left;
 }
-
+.encajr{
+  width: 81px;
+  height: 17px;
+  top: 499px;
+  left: 205px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
 /* Estilos para los elementos con la clase "card" utilizando Flexbox con envoltura (flex-wrap) */
 .card-container {
   display: flex;

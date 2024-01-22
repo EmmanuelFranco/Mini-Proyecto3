@@ -5,6 +5,7 @@ import Card from "./Componentes/Card";
 import Nav from "./Componentes/Nav";
 import staysData from "./stays.json";
 
+
 function App() {
   const [stays, setStays] = useState([]);
   const [filteredStays, setFilteredStays] = useState([]);

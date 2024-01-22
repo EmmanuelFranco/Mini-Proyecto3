@@ -1,9 +1,9 @@
-// Nav.js
+// Importa el ícono de la "x" de react-icons
+import { GoX } from "react-icons/go";
 import React, { useState, useEffect } from "react";
 import { GoSearch } from "react-icons/go";
-import staysData from "../stays.json"
+import staysData from "../stays.json";
 import Card from "./Card";
-//import "./Modal.css";
 
 function Nav({ onSearch }) {
   const [showModal, setShowModal] = useState(false);
@@ -12,12 +12,10 @@ function Nav({ onSearch }) {
   const [resultsCount, setResultsCount] = useState(staysData.length);
 
   useEffect(() => {
-   
     const updateResultsCount = (count) => {
       setResultsCount(count);
     };
 
-   
     onSearch(locationInput, guestsInput, updateResultsCount);
   }, [locationInput, guestsInput, onSearch]);
 
@@ -32,7 +30,6 @@ function Nav({ onSearch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
     onSearch(locationInput, guestsInput, setResultsCount);
     closeModal();
   };
@@ -70,40 +67,69 @@ function Nav({ onSearch }) {
             />
           </svg>
         </div>
-        <div className="navegador">
-          <button onClick={openModal}>Search Stays</button>
+        <div className="navegador flex items-center justify-end">
+          <button
+            onClick={openModal}
+            className="bg-red-500 text-white rounded p-2"
+          >
+            Search Stays
+          </button>
         </div>
-        <div className="encabe-container">
+
+        <div className="encabe-container ml-4 flex justify-between items-center">
           <h2 className="encabe">Stays in Finland</h2>
-          <p className="encajr">
+          <p className="encajr ">
             {resultsCount} {resultsCount !== 1 ? "stays" : "stay"}
           </p>
         </div>
       </div>
       {showModal && (
-        <div className="modal-overlay modal-open" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <form onSubmit={handleSubmit}>
-              <div className="search-logo-container">
-                <select value={locationInput} onChange={handleLocationChange}>
-                  <option value=""></option>
-                  {uniqueLocations.map((location, index) => (
-                    <option key={index} value={location}>
-                      {location}
+        <div className="fixed inset-0 overflow-y-auto z-50">
+          <div className="flex items-center justify-center min-h-screen">
+            <div className="modal-overlay fixed inset-0 bg-black opacity-50"></div>
+
+            <button
+              className="absolute top-0 right-0 m-2 p-2 text-gray-600 rounded-full bg-gray-100"
+              onClick={closeModal}
+            >
+              <span className="ml-2"> X CLOSE</span>
+            </button>
+
+            <div className="modal-content bg-white rounded-lg overflow-hidden max-w-md mx-auto p-4 z-10 relative">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="search-logo-container">
+                  <select
+                    value={locationInput}
+                    onChange={handleLocationChange}
+                    className="w-full p-2 border rounded"
+                    style={{ color: locationInput ? "black" : "gray" }}
+                  >
+                    <option value="" disabled hidden>
+                      Add Location
                     </option>
-                  ))}
-                </select>
-                <input
-                  type="number"
-                  placeholder="Add Guests"
-                  value={guestsInput}
-                  onChange={handleGuestsChange}
-                />
-                <button type="submit">
-                  <GoSearch style={{ color: "red" }} />
-                </button>
-              </div>
-            </form>
+                    {uniqueLocations.map((location, index) => (
+                      <option key={index} value={location}>
+                        {location}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="number"
+                    placeholder="Add Guests"
+                    value={guestsInput}
+                    onChange={handleGuestsChange}
+                    className="w-full p-2 border rounded"
+                  />
+                  <button
+                    type="submit"
+                    className="w-full p-2 bg-red-500 text-white rounded flex items-center justify-center"
+                  >
+                    <GoSearch style={{ marginRight: "0.5rem" }} />
+                    SEARCH
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       )}
